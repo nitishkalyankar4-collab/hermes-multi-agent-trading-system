@@ -1,0 +1,14 @@
+{
+  "total_signals": 0,
+  "winning_signals": 0,
+  "losing_signals": 0,
+  "win_rate_pct": 0.0,
+  "min_confluence_threshold": 80,
+  "signals": [],
+  "learnings_log": [
+    {
+      "timestamp": 1770603720,
+      "note": "Self-learning system initialized with baseline institutional confluence rules."
+    }
+  ]
+}

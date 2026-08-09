@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes Institutional Signal Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-area">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">HERMES <span class="logo-badge">INSTITUTIONAL</span></span>
+            </div>
+            <div class="system-status">
+                <span class="status-indicator active"></span>
+                <span id="scan-time">LAST SCAN: LOADING...</span>
+                <button id="rescan-btn" class="btn-primary">⚡ FORCE RE-SCAN</button>
+            </div>
+        </header>
+
+        <!-- Metrics Overview Grid -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-title">TOTAL ASSETS MONITORED</span>
+                <span class="metric-value" id="stat-total">0</span>
+                <span class="metric-subtitle">Delta Exchange Universe</span>
+            </div>
+            <div class="metric-card bull">
+                <span class="metric-title">BUY SIGNALS</span>
+                <span class="metric-value" id="stat-buy">0</span>
+                <span class="metric-subtitle">High Confluence</span>
+            </div>
+            <div class="metric-card bear">
+                <span class="metric-title">SELL SIGNALS</span>
+                <span class="metric-value" id="stat-sell">0</span>
+                <span class="metric-subtitle">Institutional Distribution</span>
+            </div>
+            <div class="metric-card gold">
+                <span class="metric-title">SYSTEM WIN RATE</span>
+                <span class="metric-value" id="stat-winrate">0.0%</span>
+                <span class="metric-subtitle">Adaptive Threshold Engine</span>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-layout">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="ALL">ALL ASSETS</button>
+                    <button class="filter-btn" data-filter="BUY">BUY SIGNALS</button>
+                    <button class="filter-btn" data-filter="SELL">SELL SIGNALS</button>
+                    <button class="filter-btn" data-filter="STRONG">STRONG ONLY</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search symbol (e.g., BTCUSD)...">
+                </div>
+            </div>
+
+            <!-- Signal Grid -->
+            <div id="signals-container" class="signals-grid">
+                <div class="loading-spinner">Analyzing Orderbook, SMC & Order Flow...</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

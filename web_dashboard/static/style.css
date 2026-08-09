@@ -1,0 +1,316 @@
+:root {
+    --bg-primary: #0a0b0e;
+    --bg-surface: #12151c;
+    --bg-card: #181c26;
+    --border-color: #242b38;
+    
+    --text-primary: #f0f4f8;
+    --text-secondary: #8a99ad;
+    --text-muted: #56657a;
+    
+    --accent-gold: #f5b027;
+    --accent-bull: #10b981;
+    --accent-bear: #ef4444;
+    --accent-neutral: #6366f1;
+    
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-surface);
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+}
+
+.logo-badge {
+    background: var(--accent-gold);
+    color: #000;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-bull);
+    box-shadow: 0 0 10px var(--accent-bull);
+}
+
+.btn-primary {
+    background: var(--accent-gold);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-title {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin: 8px 0 4px 0;
+}
+
+.metric-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.metric-card.bull .metric-value { color: var(--accent-bull); }
+.metric-card.bear .metric-value { color: var(--accent-bear); }
+.metric-card.gold .metric-value { color: var(--accent-gold); }
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--accent-gold);
+}
+
+.search-box input {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    width: 280px;
+}
+
+/* Signals Grid */
+.signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+}
+
+.signal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.signal-card:hover {
+    border-color: #3b475d;
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asset-symbol {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.badge-direction {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.badge-direction.BUY, .badge-direction.STRONG_BUY {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-bull);
+    border: 1px solid var(--accent-bull);
+}
+
+.badge-direction.SELL, .badge-direction.STRONG_SELL {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--accent-bear);
+    border: 1px solid var(--accent-bear);
+}
+
+.badge-direction.NEUTRAL {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-neutral);
+    border: 1px solid var(--accent-neutral);
+}
+
+.confluence-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.confluence-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+}
+
+.confluence-progress {
+    height: 6px;
+    background: var(--bg-surface);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.confluence-fill {
+    height: 100%;
+    background: var(--accent-gold);
+    border-radius: 3px;
+}
+
+.subagent-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--bg-surface);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+}
+
+.trade-params {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+}
+
+.param-item span:first-child {
+    color: var(--text-muted);
+}
+
+.param-item span:last-child {
+    font-weight: 700;
+}
